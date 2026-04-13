@@ -1,12 +1,14 @@
 import express from "express";
 import cors from "cors";
 import fetch from "node-fetch";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const OPENROUTER_API_KEY = "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";
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
 function isCrisis(text) {
   const words = ["suicide", "kill myself", "die"];
